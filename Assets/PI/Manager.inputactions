@@ -1,0 +1,34 @@
+{
+    "name": "Manager",
+    "maps": [
+        {
+            "name": "Manager",
+            "id": "063e974d-42ab-4e47-b8c7-32089e1f1777",
+            "actions": [
+                {
+                    "name": "Gameover",
+                    "type": "Button",
+                    "id": "31b92442-8975-4816-9d17-32d380f5aa44",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "6de36189-9f94-4cb4-bcd4-403a996f15bf",
+                    "path": "<Keyboard>/anyKey",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Gameover",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

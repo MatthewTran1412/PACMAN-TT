@@ -79,6 +79,10 @@ public class GameManager : MonoBehaviour
         }
     }
     public void PowerPellet(PowerPellet powerpellet){
+        for (int i = 0; i < ghosts.Length; i++)
+        {
+            ghosts[i].frigtened.Enable(powerpellet.duration);
+        }
         PelletEaten(powerpellet);
         CancelInvoke();
         Invoke(nameof(ResetGhostMultiplier),powerpellet.duration);

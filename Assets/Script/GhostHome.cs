@@ -19,8 +19,8 @@ public class GhostHome : GhostBehavior
             ghost.movement.SetDirection(-ghost.movement.direction);
     }
     private IEnumerator Exit(){
+        this.ghost.scatter.Enable();
         this.ghost.movement.SetDirection(Vector2.up,true);
-        Debug.Log(this.ghost.movement.rigidbody.isKinematic);
         this.ghost.movement.rigidbody.isKinematic = true;
         this.ghost.movement.enabled=false;
 
@@ -32,7 +32,7 @@ public class GhostHome : GhostBehavior
         {
             Vector3 newposition = Vector3.Lerp(position,this.inside.position,elapsed/duration);
             newposition.z=position.z;
-            this.ghost.transform.position = position;
+            this.ghost.transform.position = newposition;
             elapsed+=Time.deltaTime;
             yield return null;
         }
@@ -41,7 +41,7 @@ public class GhostHome : GhostBehavior
         {
             Vector3 newposition = Vector3.Lerp(this.inside.position,this.outside.position,elapsed/duration);
             newposition.z=position.z;
-            this.ghost.transform.position = position;
+            this.ghost.transform.position = newposition;
             elapsed+=Time.deltaTime;
             yield return null;
         }

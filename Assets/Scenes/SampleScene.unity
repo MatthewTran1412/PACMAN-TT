@@ -10795,7 +10795,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1366660344}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10975,6 +10975,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 6
+  body: {fileID: 5307940297149566326}
+  eyes: {fileID: 5307940296353796825}
+  blue: {fileID: 5307940297201553454}
+  white: {fileID: 5307940297302571029}
 --- !u!114 &2324936099511565872
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11253,7 +11257,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 7
   speedMultiplier: 1
-  initialDirection: {x: -1, y: 0}
+  initialDirection: {x: 0, y: -1}
   obstacleLayer:
     serializedVersion: 2
     m_Bits: 512
@@ -11281,7 +11285,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2324936100372938436}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.06, y: -0.38, z: -1}
+  m_LocalPosition: {x: 0, y: -0.5, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -11435,6 +11439,7 @@ GameObject:
   - component: {fileID: 2324936101399945624}
   - component: {fileID: 2324936101399945630}
   - component: {fileID: 2324936101399945625}
+  - component: {fileID: 2324936101399945631}
   m_Layer: 7
   m_Name: Eye
   m_TagString: Untagged
@@ -11494,6 +11499,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2324936101399945631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2324936101399945627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 663ac370def79a745a04d9ee00e9a707, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  up: {fileID: 21300000, guid: 7391304e6dcdc594484288107bfd217f, type: 3}
+  down: {fileID: 21300000, guid: b97167c35748db84fb4d32f4f242922a, type: 3}
+  left: {fileID: 21300000, guid: d65aa956b7569874fab274083826a77f, type: 3}
+  right: {fileID: 21300000, guid: 07ddb51374d9f19458dad756bbbcd880, type: 3}
 --- !u!114 &2364666556081688209
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11520,6 +11541,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 6
+  body: {fileID: 3911860848607725618}
+  eyes: {fileID: 3911860848367703965}
+  blue: {fileID: 3911860848661845354}
+  white: {fileID: 3911860849565908305}
 --- !u!114 &2520077407050657192
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11574,6 +11599,7 @@ GameObject:
   - component: {fileID: 3911860848367703963}
   - component: {fileID: 3911860848367703965}
   - component: {fileID: 3911860848367703962}
+  - component: {fileID: 3911860848367703966}
   m_Layer: 7
   m_Name: Eye
   m_TagString: Untagged
@@ -11663,6 +11689,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3911860848367703966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3911860848367703960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 663ac370def79a745a04d9ee00e9a707, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  up: {fileID: 21300000, guid: 7391304e6dcdc594484288107bfd217f, type: 3}
+  down: {fileID: 21300000, guid: b97167c35748db84fb4d32f4f242922a, type: 3}
+  left: {fileID: 21300000, guid: d65aa956b7569874fab274083826a77f, type: 3}
+  right: {fileID: 21300000, guid: 07ddb51374d9f19458dad756bbbcd880, type: 3}
 --- !u!4 &3911860848607725616
 Transform:
   m_ObjectHideFlags: 0
@@ -11948,7 +11990,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3911860849361160391}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -11969,7 +12011,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3911860849361160391}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.31, z: -1}
+  m_LocalPosition: {x: 0, y: 2.5, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -12095,6 +12137,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 6
+  body: {fileID: 5489444674060916566}
+  eyes: {fileID: 5489444673770293497}
+  blue: {fileID: 5489444674013055502}
+  white: {fileID: 5489444674985271861}
 --- !u!114 &4148380547614637628
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12108,6 +12154,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 6
+  body: {fileID: 2324936099511565873}
+  eyes: {fileID: 2324936101399945630}
+  blue: {fileID: 2324936099562300265}
+  white: {fileID: 2324936100469656402}
 --- !u!114 &4562294514368421324
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12199,6 +12249,7 @@ GameObject:
   - component: {fileID: 5307940296353796831}
   - component: {fileID: 5307940296353796825}
   - component: {fileID: 5307940296353796830}
+  - component: {fileID: 5307940296353796832}
   m_Layer: 7
   m_Name: Eye
   m_TagString: Untagged
@@ -12236,6 +12287,22 @@ Transform:
   m_Father: {fileID: 5307940297349483913}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5307940296353796832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5307940296353796828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 663ac370def79a745a04d9ee00e9a707, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  up: {fileID: 21300000, guid: 7391304e6dcdc594484288107bfd217f, type: 3}
+  down: {fileID: 21300000, guid: b97167c35748db84fb4d32f4f242922a, type: 3}
+  left: {fileID: 21300000, guid: d65aa956b7569874fab274083826a77f, type: 3}
+  right: {fileID: 21300000, guid: 07ddb51374d9f19458dad756bbbcd880, type: 3}
 --- !u!4 &5307940297149566324
 Transform:
   m_ObjectHideFlags: 0
@@ -12589,7 +12656,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5307940297349483907}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.97, y: -0.35, z: -1}
+  m_LocalPosition: {x: -2, y: -0.5, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -12630,7 +12697,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 7
   speedMultiplier: 1
-  initialDirection: {x: -1, y: 0}
+  initialDirection: {x: 0, y: 1}
   obstacleLayer:
     serializedVersion: 2
     m_Bits: 512
@@ -12718,6 +12785,7 @@ GameObject:
   - component: {fileID: 5489444673770293503}
   - component: {fileID: 5489444673770293497}
   - component: {fileID: 5489444673770293502}
+  - component: {fileID: 5489444673770293504}
   m_Layer: 7
   m_Name: Eye
   m_TagString: Untagged
@@ -12755,6 +12823,22 @@ Transform:
   m_Father: {fileID: 5489444674930481065}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5489444673770293504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5489444673770293500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 663ac370def79a745a04d9ee00e9a707, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  up: {fileID: 21300000, guid: 7391304e6dcdc594484288107bfd217f, type: 3}
+  down: {fileID: 21300000, guid: b97167c35748db84fb4d32f4f242922a, type: 3}
+  left: {fileID: 21300000, guid: d65aa956b7569874fab274083826a77f, type: 3}
+  right: {fileID: 21300000, guid: 07ddb51374d9f19458dad756bbbcd880, type: 3}
 --- !u!4 &5489444674013055500
 Transform:
   m_ObjectHideFlags: 0
@@ -13006,7 +13090,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5489444674930481059}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.93, y: -0.35, z: -1}
+  m_LocalPosition: {x: 2, y: -0.5, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -13047,7 +13131,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 7
   speedMultiplier: 1
-  initialDirection: {x: -1, y: 0}
+  initialDirection: {x: 0, y: 1}
   obstacleLayer:
     serializedVersion: 2
     m_Bits: 512

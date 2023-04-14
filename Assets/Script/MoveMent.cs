@@ -18,7 +18,8 @@ public class MoveMent : MonoBehaviour
         startingPosition=transform.position;
     }
     private void Start() {
-        ResetState();
+        if(FindObjectOfType<GameManager>().isNewGame==true)
+            ResetState();
     }
     public void ResetState()
     {

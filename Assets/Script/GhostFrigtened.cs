@@ -18,7 +18,6 @@ public class GhostFrigtened : GhostBehavior
         this.eyes.enabled=false;
         this.blue.enabled=true;
         this.white.enabled=false;
-
         Invoke(nameof(Flash),duration/2.0f);
     }
     public override void Disable() {

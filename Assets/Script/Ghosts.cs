@@ -20,7 +20,8 @@ public class Ghosts : MonoBehaviour
         frigtened=GetComponent<GhostFrigtened>();
     }
     private void Start() {
-        ResetState();
+        if(FindObjectOfType<GameManager>().isNewGame==true)
+            ResetState();
     }
     public void ResetState(){
         gameObject.SetActive(true);

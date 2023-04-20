@@ -15,7 +15,8 @@ public class GameData
     public bool[] isChase;
     public bool[] isScatter;
     public bool[] isFrightened;
-    public bool[] pelletactive;
+    public float[] Duration;
+    public List<Vector3> pellet;
     public GameData()
     {
         lives=3;
@@ -31,10 +32,6 @@ public class GameData
         isChase= new bool[]{ false, false, false, false };
         isScatter= new bool[]{ true, false, false, false };
         isFrightened=new bool[]{ false, false, false, false };
-        pelletactive=new bool[100];
-        for (int i = 0; i < pelletactive.Length; i++)
-        {
-            pelletactive[i]=true;
-        }
+        Duration = new float[]{7f,6f,9f,12f};
     }
 }

@@ -10,7 +10,6 @@ public class GameManager : MonoBehaviour,IDataPersistence
     public Ghosts[] ghosts;
     public Pacman pacman;
     public Transform pellets;
-    public Pellet[] pelletstate;
     public AudioClip EatGhost;
     public AudioClip Die;
     public AudioClip gameover;
@@ -41,10 +40,6 @@ public class GameManager : MonoBehaviour,IDataPersistence
         ac = GetComponent<AudioSource>();
         ac.PlayOneShot(startgame);
         StartCoroutine(WaitforNewGame());
-        // for (int i = 0; i < 100; i++)
-        // {
-            // pelletstate[i]=GetComponentInChildren<Pellet>();
-        // }
     }
     private void NewGame(){
         SetScore(0);
@@ -61,10 +56,18 @@ public class GameManager : MonoBehaviour,IDataPersistence
     }
     public void LoadData(GameData data)
     {
-        data.score=this.score;
-        data.lives=this.lives;
-        data.pacmanposition=pacman.gameObject.transform.position;
-        data.PacmanDirection=pacman.movement.direction;
+        this.score=data.score;
+        this.lives=data.lives;
+        pacman.gameObject.transform.position=data.pacmanposition;
+        if(data.PacmanDirection==Vector2.up)
+            pacman.gameObject.transform.rotation=Quaternion.Euler(0,0,90);
+        else if(data.PacmanDirection==Vector2.down)
+            pacman.gameObject.transform.rotation=Quaternion.Euler(0,0,-90);
+        else if(data.PacmanDirection==Vector2.left)
+            pacman.gameObject.transform.rotation=Quaternion.Euler(0,0,0);
+        else if(data.PacmanDirection==Vector2.right)
+            pacman.gameObject.transform.rotation=Quaternion.Euler(0,0,180);
+        pacman.movement.SetDirection(data.PacmanDirection);
         for (int i = 0; i < ghosts.Length; i++)
         {
             ghosts[i].gameObject.transform.position=data.GhostPosistion[i];
@@ -72,10 +75,31 @@ public class GameManager : MonoBehaviour,IDataPersistence
             ghosts[i].chase.enabled=data.isChase[i];
             ghosts[i].scatter.enabled=data.isScatter[i];
             ghosts[i].frigtened.enabled=data.isFrightened[i];
+            if(ghosts[i].home.enabled)
+                ghosts[i].home.Enable(data.Duration[i]);
+            else if(ghosts[i].chase.enabled)
+                ghosts[i].chase.Enable(data.Duration[i]);
+            else if(ghosts[i].scatter.enabled)
+                ghosts[i].scatter.Enable(data.Duration[i]);
+            else if(ghosts[i].frigtened.enabled)
+                ghosts[i].frigtened.Enable(data.Duration[i]);
         }
-        for (int i = 0; i < data.pelletactive.Length; i++)
+        foreach(Transform pellet in pellets)
         {
-            pellets.gameObject.SetActive(data.pelletactive[i]);
+            if (data.pellet.Contains(pellet.transform.position))
+            {
+                pellet.gameObject.SetActive(false);
+            }
+            else
+            {
+                pellet.gameObject.SetActive(true);
+            }
+        }
+        foreach(GameObject item in livesprite)
+            item.SetActive(false);
+        for (int i = 0; i < lives; i++)
+        {
+            livesprite[i].SetActive(true);
         }
     }
     public void SaveData(ref GameData data){
@@ -90,11 +114,19 @@ public class GameManager : MonoBehaviour,IDataPersistence
             data.isChase[i]=ghosts[i].chase.enabled;
             data.isScatter[i]=ghosts[i].scatter.enabled;
             data.isFrightened[i]=ghosts[i].frigtened.enabled;
+            if(ghosts[i].home.enabled)
+                data.Duration[i]=ghosts[i].home.timeleft;
+            else if(ghosts[i].chase.enabled)
+                data.Duration[i]=ghosts[i].chase.timeleft;
+            else if(ghosts[i].scatter.enabled)
+                data.Duration[i]=ghosts[i].scatter.timeleft;
+            else if(ghosts[i].frigtened.enabled)
+                data.Duration[i]=ghosts[i].frigtened.timeleft;
         }
-        for (int i = 0; i < data.pelletactive.Length; i++)
+        foreach(Transform pellet in pellets)
         {
-            data.pelletactive[i]=pellets.gameObject.activeSelf;
-            Debug.Log(data.pelletactive[i]);
+            if(!pellet.gameObject.activeSelf)
+                data.pellet.Add(pellet.gameObject.transform.position);
         }
     }
     private void Update() {

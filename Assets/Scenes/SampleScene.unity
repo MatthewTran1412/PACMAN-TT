@@ -4432,6 +4432,22 @@ MonoBehaviour:
     lives: 3
     score: 0
     pacmanposition: {x: 0, y: -9.5, z: -5}
+    PacmanDirection: {x: 0, y: 0}
+    GhostPosistion:
+    - {x: 0, y: 0, z: 0}
+    - {x: 0, y: 0, z: 0}
+    - {x: 0, y: 0, z: 0}
+    - {x: 0, y: 0, z: 0}
+    isHome: 00010101
+    isChase: 00000000
+    isScatter: 01000000
+    isFrightened: 00000000
+    Duration:
+    - 7
+    - 6
+    - 9
+    - 12
+    pellet: []
 --- !u!1 &823503646
 GameObject:
   m_ObjectHideFlags: 0
@@ -12727,6 +12743,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 20
+  timeleft: 0
 --- !u!114 &528362227325453034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12740,6 +12757,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 7
+  timeleft: 0
 --- !u!114 &550340455589610393
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12753,6 +12771,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 20
+  timeleft: 0
 --- !u!114 &584247553663014238
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12766,6 +12785,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 7
+  timeleft: 0
 --- !u!114 &858961187897258674
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12779,6 +12799,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 6
+  timeleft: 0
   body: {fileID: 5307940297149566326}
   eyes: {fileID: 5307940296353796825}
   blue: {fileID: 5307940297201553454}
@@ -13332,6 +13353,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 20
+  timeleft: 0
 --- !u!114 &2426976272301395982
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13345,6 +13367,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 6
+  timeleft: 0
   body: {fileID: 3911860848607725618}
   eyes: {fileID: 3911860848367703965}
   blue: {fileID: 3911860848661845354}
@@ -13362,6 +13385,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 12
+  timeleft: 0
   inside: {fileID: 1366660345}
   outside: {fileID: 697790856}
 --- !u!114 &3384655028402561473
@@ -13377,6 +13401,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 7
+  timeleft: 0
 --- !u!114 &3899104724306171982
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13390,6 +13415,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 3
+  timeleft: 0
   inside: {fileID: 1366660345}
   outside: {fileID: 697790856}
 --- !u!1 &3911860848367703960
@@ -13941,6 +13967,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 6
+  timeleft: 0
   body: {fileID: 5489444674060916566}
   eyes: {fileID: 5489444673770293497}
   blue: {fileID: 5489444674013055502}
@@ -13958,6 +13985,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 6
+  timeleft: 0
   body: {fileID: 2324936099511565873}
   eyes: {fileID: 2324936101399945630}
   blue: {fileID: 2324936099562300265}
@@ -13975,6 +14003,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 9
+  timeleft: 0
   inside: {fileID: 1366660345}
   outside: {fileID: 697790856}
 --- !u!114 &5102147741928560434
@@ -13990,6 +14019,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 7
+  timeleft: 0
 --- !u!212 &5307940296353796825
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -15075,6 +15105,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 6
+  timeleft: 0
   inside: {fileID: 1366660345}
   outside: {fileID: 697790856}
 --- !u!114 &8018284681554271956
@@ -15090,3 +15121,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 20
+  timeleft: 0

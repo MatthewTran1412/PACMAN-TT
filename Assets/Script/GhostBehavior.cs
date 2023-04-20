@@ -6,9 +6,11 @@ public abstract class GhostBehavior : MonoBehaviour
 {
     public Ghosts ghost{get;private set;}
     public float duration;
+    public float timeleft;
     private void Awake() {
         ghost=GetComponent<Ghosts>();
         this.enabled=false;
+        timeleft=duration;
     }
     public void Enable() {
         Enable(duration);
@@ -22,5 +24,8 @@ public abstract class GhostBehavior : MonoBehaviour
     public virtual void Disable() {
         this.enabled=false;
         CancelInvoke();
+    }
+    private void Update() {
+        timeleft-=Time.deltaTime;
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(MoveMent))]
-public class Pacman : MonoBehaviour
+public class Pacman : MonoBehaviour,IDataPersistence
 {
     Vector2 movedirection;
     public MoveMent movement{get;private set;}
@@ -13,7 +13,7 @@ public class Pacman : MonoBehaviour
         ac=GetComponent<AudioSource>();
     }
     private void Update() {
-        if(FindObjectOfType<GameManager>().isNewGame==true)
+        if(FindObjectOfType<GameManager>().isNewGame==true && FindObjectOfType<GameManager>().isPause==false)
         {
             if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) {
                 movement.SetDirection(Vector2.up);
@@ -35,6 +35,14 @@ public class Pacman : MonoBehaviour
     {
         gameObject.SetActive(true);
         movement.ResetState();
+    }
+    public void LoadData(GameData data)
+    {
+        this.transform.position= data.pacmanposition;
+    }
+    public void SaveData(ref GameData data)
+    {
+        data.pacmanposition=this.transform.position;
     }
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.gameObject.layer == LayerMask.NameToLayer("Pellet"))

@@ -16,6 +16,7 @@ public class GameData
     public bool[] isScatter;
     public bool[] isFrightened;
     public float[] Duration;
+    public Vector2[] GhostDirection;
     public List<Vector3> pellet;
     public GameData()
     {
@@ -33,5 +34,15 @@ public class GameData
         isScatter= new bool[]{ true, false, false, false };
         isFrightened=new bool[]{ false, false, false, false };
         Duration = new float[]{7f,6f,9f,12f};
+        GhostDirection = new Vector2[4];
+        for (int i = 0; i < GhostDirection.Length; i++)
+        {
+            if(i==1)
+                GhostDirection[i]=Vector2.right;
+            else if(i==2)
+                GhostDirection[i]=Vector2.down;
+            else 
+                GhostDirection[i]=Vector2.up;
+        }
     }
 }

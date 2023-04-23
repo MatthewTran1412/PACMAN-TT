@@ -75,6 +75,7 @@ public class GameManager : MonoBehaviour,IDataPersistence
             ghosts[i].chase.enabled=data.isChase[i];
             ghosts[i].scatter.enabled=data.isScatter[i];
             ghosts[i].frigtened.enabled=data.isFrightened[i];
+            ghosts[i].movement.SetDirection(data.GhostDirection[i]);
             if(ghosts[i].home.enabled)
                 ghosts[i].home.Enable(data.Duration[i]);
             else if(ghosts[i].chase.enabled)
@@ -97,7 +98,7 @@ public class GameManager : MonoBehaviour,IDataPersistence
         }
         foreach(GameObject item in livesprite)
             item.SetActive(false);
-        for (int i = 0; i < lives; i++)
+        for (int i = 0; i < lives-1; i++)
         {
             livesprite[i].SetActive(true);
         }
@@ -114,6 +115,7 @@ public class GameManager : MonoBehaviour,IDataPersistence
             data.isChase[i]=ghosts[i].chase.enabled;
             data.isScatter[i]=ghosts[i].scatter.enabled;
             data.isFrightened[i]=ghosts[i].frigtened.enabled;
+            data.GhostDirection[i]=ghosts[i].movement.direction;
             if(ghosts[i].home.enabled)
                 data.Duration[i]=ghosts[i].home.timeleft;
             else if(ghosts[i].chase.enabled)
@@ -123,6 +125,7 @@ public class GameManager : MonoBehaviour,IDataPersistence
             else if(ghosts[i].frigtened.enabled)
                 data.Duration[i]=ghosts[i].frigtened.timeleft;
         }
+
         foreach(Transform pellet in pellets)
         {
             if(!pellet.gameObject.activeSelf)

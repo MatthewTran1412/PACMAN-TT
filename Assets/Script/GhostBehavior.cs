@@ -26,6 +26,9 @@ public abstract class GhostBehavior : MonoBehaviour
         CancelInvoke();
     }
     private void Update() {
-        timeleft-=Time.deltaTime;
+        if(this.enabled)
+            timeleft-=Time.deltaTime;
+        if(timeleft<=0)
+            timeleft=duration;
     }
 }
